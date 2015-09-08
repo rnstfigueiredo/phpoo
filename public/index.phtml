@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<?php
+require_once 'motorindex.php';
+
+?>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com) Template base">
+        <meta name="developer"      content="Rnst Figueiredo">
+	
+	<title>Curso PHPOO - Code.Education</title>
+
+	<link rel="shortcut icon" href="images/favicon.ico">
+	
+	<!-- Bootstrap itself -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="css/magister.css">
+        <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	<!-- Fonts -->
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+        
+        
+        <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+        
+        <!-- tabela dinamica-->
+        <link href="css/theme.blue.css" rel="stylesheet" type="text/css"/>
+        
+<!-- load jQuery and tablesorter scripts -->
+<script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
+
+
+<!-- tablesorter widgets (optional) -->
+<script src="js/jquery.tablesorter.widgets.min.js" type="text/javascript"></script>
+    
+<script>
+	$(function(){
+		$('table').tablesorter({
+			widgets        : ['zebra', 'columns'],
+			usNumberFormat : false,
+			sortReset      : true,
+			sortRestart    : true
+		});
+	});
+        
+        
+        
+        function onclickCliente(id_cliente){
+        var data ="ID="+id_cliente;
+        
+        
+        $.ajax({
+            dataType: "json",
+            url: "json.php",
+            type : 'POST',
+            data: data,
+            success: function(data){
+                
+                    //var texto = data.endereco
+                    //alert(texto);
+                     $('#Endereco').html(data.endereco);
+                    $('#numero').html(data.numero);
+$('#bairro').html(data.bairro);
+$('#cidade').html(data.cidade);
+$('#uf').html(data.uf);
+$('#limitecredito').html(data.limitecredito);
+$('#nome').html(data.nome);
+$('#cadastroGeralPessoa').html(data.cadastroGeralPessoa);
+$('#dtNascimento').html(data.dtNascimento );
+$('#idade').html(data.idade);
+$('#nacionalidade').html(data.nacionalidade);
+                
+            }
+        });
+        
+        
+        
+        
+        
+        
+        $("#dialog-cliente").dialog({
+                  autoOpen: false,
+                  height: 250,
+            width: 550,
+            modal: true,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }						
+        });
+        $( "#dialog-cliente" ).dialog( "open" );
+    }
+    $(document).ready(function() {                                       
+        $("#dialog-cliente").dialog({      
+            autoOpen: false,      
+            modal: false    
+        }); 
+    });
+        
+        
+        
+	</script>
+        
+</head>
+
+<!-- use "theme-invert" class on bright backgrounds, also try "text-shadows" class -->
+<body class="theme-invert">
+
+
+
+
+<!-- Main (Home) section -->
+<section class="section" id="head">
+	<div class="container">
+
+		<div class="row">
+                    <div class="col-lg-6">
+                        
+                        
+                        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">	
+                            <table id="tablesorter-demo" class="tablesorter tablesorter-blue" role="grid">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+			
+                        
+                                
+                                
+
+
+<?php
+
+$id = 1;
+foreach ($arrayClientes as $key=>$cliente){
+    
+   // var_dump();
+    //var_dump($cliente);
+  echo  '<tr><td>'.$key.'</td><td><div onclick="onclickCliente('.$key.')">'.$cliente->getNome().'</td></tr>';
+   // $id++;
+}
+
+             	
+
+?>
+
+                                </tbody> 
+                        </table>
+
+                        
+                        
+                        
+                            
+                                           
+                            
+                            
+                            
+                            
+	
+			</div> <!-- /col -->
+                        
+                        
+                    </div>
+                    
+                    <div class="col-lg-6">
+                    
+                    
+                    <div id="dialog-cliente" title="Dados Do Cliente">
+                        <div class="col-lg-4"><strong>Nome Cliente:</strong></div> <div class="col-lg-8" id="nome"></div>
+                        <div class="col-lg-3"><strong>Endereco:</strong> </div><div class="col-lg-6" id="Endereco"></div>
+                        <div class="col-lg-1"><strong>n:</strong> </div><div class="col-lg-2" id="numero"></div>
+                        <div class="col-lg-3"><strong>bairro:</strong> </div><div class="col-lg-7" id="bairro"></div>
+                        <div class="col-lg-3"><strong>cidade:</strong> </div><div class="col-lg-4" id="cidade"></div>
+                        <div class="col-lg-2"><strong>uf:</strong> </div><div class="col-lg-3" id="uf"></div>
+                        
+                        <div class="col-lg-3"><strong>limitecredito:</strong> </div><div class="col-lg-9" id="limitecredito"></div>
+                        <div class="col-lg-5"><strong>CPF:</strong> </div><div class="col-lg-7" id="cadastroGeralPessoa"></div>
+                      
+                        <div class="col-lg-3"><strong>dtNascimento:</strong> </div><div class="col-lg-4" id="dtNascimento"></div>
+                        <div class="col-lg-2"><strong>idade:</strong> </div><div class="col-lg-3" id="idade"></div>
+                        <div class="col-lg-3"><strong>nacionalidade:</strong> </div><div class="col-lg-9" id="nacionalidade"></div>
+                    </div>
+                        
+                    
+                    </div>
+                    
+                    
+			
+		</div> <!-- /row -->
+	
+	</div>
+</section>
+
+
+
+
+
+
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/modernizr.custom.72241.js"></script>
+<!-- Custom template scripts -->
+<script src="js/magister.js"></script>
+</body>
+</html>
