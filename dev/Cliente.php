@@ -1,7 +1,24 @@
 <?php
 require_once(__DIR__.'/Pessoa.php');
+require_once(__DIR__.'/PessoaInterface.php');
 
-class Cliente extends Pessoa
+/*
+
+Tipos de clientes
+Agora que você já tem seu cadastro de cliente, 
+ * você deverá também aceitar clientes Pessoa Jurídica em sua listagem.
+Não se esqueça de trabalhar com os modificadores de acesso e os getters e setters.
+No momento da listagem dos clientes, você deve indicar em uma das colunas se o cliente é pessoa física ou jurídica.
+Ambos os tipos devem implementar uma interface onde seja possível classificar 
+o grau de importância do cliente para a empresa (ex: cliente 1,2,3,5 estrelas).
+Você também terá a opção de criar clientes que utilizão endereço específico de cobrança, 
+nesse caso, crie uma interface para que esses tipos de clientes possam implementar.
+
+ */
+
+
+
+class Cliente extends Pessoa implements PessoaInterface
 {
     private $endereco;
     private $numero;
@@ -9,6 +26,7 @@ class Cliente extends Pessoa
     private $cidade;
     private $uf;
     private $limitecredito;
+    private $classificaCliente;
     
     
     public function getEndereco() {
@@ -65,7 +83,24 @@ class Cliente extends Pessoa
         return $this;
     }
 
+    public function getClassificaCliente() {
+        return $this->classificaCliente;
+    }
+
+    public function setClassificaCliente($classificaCliente) {
+        $this->classificaCliente = $classificaCliente;
+        return $this;
+    }
     
+    
+    public function getTipoPessoa() {
+        return $this->tipoPessoa;
+    }
+
+    public function setTipoPessoa($tipoPessoa) {
+        $this->tipoPessoa = $tipoPessoa;
+        return $this;
+    }
     
     
 }

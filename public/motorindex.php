@@ -14,27 +14,33 @@ for($i=0; $i<10;$i++){
     $dtNascimento = $i.$i."/".$i.$i."/".$i.$i.$i.$i;
     $idade =18+$i;
     $nacionalidade = "BR";
+    $tipoPessoa = rand (1, 2); // 1 pessoa fisica  2 pessoa juridica
     $endereco = "Rua ".(100+$i);
     $numero = $i;
     $bairro = "Jardim";
     $cidade = "SP";
     $uf = "SP";
-    $limitecredito = 10+$i;
+    $classificaCliente = $i+1;
+    $limitecredito = 10*$classificaCliente;
+    
     
     $arrayClientes[$i]->setNome($nome)
             ->setCadastroGeralPessoa($cadastroGeralPessoa)
             ->setDtNascimento($dtNascimento)
             ->setIdade($idade)
             ->setNacionalidade($nacionalidade)
+            ->setTipoPessoa($tipoPessoa)
             ->setendereco($endereco)
             ->setnumero($numero)
             ->setbairro($bairro)
             ->setcidade($cidade)
             ->setuf($uf)
+            ->setClassificaCliente($classificaCliente)
             ->setlimitecredito($limitecredito);  
    
 }
 
 
-
+//print_r($arrayClientes);
+//die();
 

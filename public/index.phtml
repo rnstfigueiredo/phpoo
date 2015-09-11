@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
-require_once 'motorindex.php';
-
+    require_once 'motorindex.php';
 ?>
 
 <html lang="en">
@@ -76,6 +75,21 @@ $('#cadastroGeralPessoa').html(data.cadastroGeralPessoa);
 $('#dtNascimento').html(data.dtNascimento );
 $('#idade').html(data.idade);
 $('#nacionalidade').html(data.nacionalidade);
+
+var estrela = data.classificaCliente+"&nbsp; *"
+
+$('#classificaCliente').html(estrela);
+
+var html;
+if(data.tipoPessoa == 1){
+    html = "<strong>CPF:</strong> ";
+    
+} else{
+     html = "<strong>CNPJ:</strong> ";
+}
+$('#tipoPessoa').html(html);
+
+
                 
             }
         });
@@ -134,6 +148,7 @@ $('#nacionalidade').html(data.nacionalidade);
                                 <tr>
                                     <th>ID</th>
                                     <th>Nome</th>
+                                    <th>Pessoa</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -146,12 +161,16 @@ $('#nacionalidade').html(data.nacionalidade);
 
 <?php
 
-$id = 1;
 foreach ($arrayClientes as $key=>$cliente){
+    
+    $tipo = $cliente->getTipoPessoa();
+    if($tipo == 1){
+        $TipoPessoaHTML = "<strong>Fisica</strog>";
+    } else{$TipoPessoaHTML = "<strong>Juridica</strog>";}
     
    // var_dump();
     //var_dump($cliente);
-  echo  '<tr><td>'.$key.'</td><td><div onclick="onclickCliente('.$key.')">'.$cliente->getNome().'</td></tr>';
+  echo  '<tr><td>'.$key.'</td><td><div onclick="onclickCliente('.$key.')">'.$cliente->getNome().'</td><td>'.$TipoPessoaHTML.'</td></tr>';
    // $id++;
 }
 
@@ -187,9 +206,10 @@ foreach ($arrayClientes as $key=>$cliente){
                         <div class="col-lg-3"><strong>bairro:</strong> </div><div class="col-lg-7" id="bairro"></div>
                         <div class="col-lg-3"><strong>cidade:</strong> </div><div class="col-lg-4" id="cidade"></div>
                         <div class="col-lg-2"><strong>uf:</strong> </div><div class="col-lg-3" id="uf"></div>
-                        
+                        <div class="col-lg-3"><strong>Avaliação:</strong> </div><div class="col-lg-9" id="classificaCliente"></div>
                         <div class="col-lg-3"><strong>limitecredito:</strong> </div><div class="col-lg-9" id="limitecredito"></div>
-                        <div class="col-lg-5"><strong>CPF:</strong> </div><div class="col-lg-7" id="cadastroGeralPessoa"></div>
+                        
+                        <div class="col-lg-5" id="tipoPessoa"> </div><div class="col-lg-7" id="cadastroGeralPessoa"></div>
                       
                         <div class="col-lg-3"><strong>dtNascimento:</strong> </div><div class="col-lg-4" id="dtNascimento"></div>
                         <div class="col-lg-2"><strong>idade:</strong> </div><div class="col-lg-3" id="idade"></div>

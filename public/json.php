@@ -20,6 +20,9 @@ $dados['cadastroGeralPessoa'] = $arrayClientes[$id]->getcadastroGeralPessoa();
 $dados['dtNascimento'] = $arrayClientes[$id]->getDtNascimento();
 $dados['idade'] = $arrayClientes[$id]->getIdade();
 $dados['nacionalidade'] = $arrayClientes[$id]->getNacionalidade();
+
+$dados['classificaCliente'] = $arrayClientes[$id]->getClassificaCliente();
+$dados['tipoPessoa'] = $arrayClientes[$id]->getTipoPessoa();
          
 
 echo json_encode($dados);
