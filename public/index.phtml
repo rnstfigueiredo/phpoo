@@ -65,32 +65,8 @@
                     //var texto = data.endereco
                     //alert(texto);
                      $('#Endereco').html(data.endereco);
-                    $('#numero').html(data.numero);
-$('#bairro').html(data.bairro);
-$('#cidade').html(data.cidade);
-$('#uf').html(data.uf);
-$('#limitecredito').html(data.limitecredito);
-$('#nome').html(data.nome);
-$('#cadastroGeralPessoa').html(data.cadastroGeralPessoa);
-$('#dtNascimento').html(data.dtNascimento );
-$('#idade').html(data.idade);
-$('#nacionalidade').html(data.nacionalidade);
-
-var estrela = data.classificaCliente+"&nbsp; *"
-
-$('#classificaCliente').html(estrela);
-
-var html;
-if(data.tipoPessoa == 1){
-    html = "<strong>CPF:</strong> ";
-    
-} else{
-     html = "<strong>CNPJ:</strong> ";
-}
-$('#tipoPessoa').html(html);
-
-
-                
+                     $('#nome').html(data.nome);                     
+                     $('#classificaCliente').html(data.GrauImportacia);
             }
         });
         
@@ -101,8 +77,8 @@ $('#tipoPessoa').html(html);
         
         $("#dialog-cliente").dialog({
                   autoOpen: false,
-                  height: 250,
-            width: 550,
+                  height: 130,
+            width: 480,
             modal: true,
       show: {
         effect: "blind",
@@ -162,12 +138,15 @@ $('#tipoPessoa').html(html);
 <?php
 
 foreach ($arrayClientes as $key=>$cliente){
+    ($cliente instanceof PessoaFisica) ? $TipoPessoaHTML = "<strong>Fisica</strog>" : $TipoPessoaHTML = "<strong>Juridica</strog>";
     
-    $tipo = $cliente->getTipoPessoa();
+    
+    
+  /*  $tipo = $cliente->getTipoPessoa();
     if($tipo == 1){
         $TipoPessoaHTML = "<strong>Fisica</strog>";
     } else{$TipoPessoaHTML = "<strong>Juridica</strog>";}
-    
+    */
    // var_dump();
     //var_dump($cliente);
   echo  '<tr><td>'.$key.'</td><td><div onclick="onclickCliente('.$key.')">'.$cliente->getNome().'</td><td>'.$TipoPessoaHTML.'</td></tr>';
@@ -201,19 +180,8 @@ foreach ($arrayClientes as $key=>$cliente){
                     
                     <div id="dialog-cliente" title="Dados Do Cliente">
                         <div class="col-lg-4"><strong>Nome Cliente:</strong></div> <div class="col-lg-8" id="nome"></div>
-                        <div class="col-lg-3"><strong>Endereco:</strong> </div><div class="col-lg-6" id="Endereco"></div>
-                        <div class="col-lg-1"><strong>n:</strong> </div><div class="col-lg-2" id="numero"></div>
-                        <div class="col-lg-3"><strong>bairro:</strong> </div><div class="col-lg-7" id="bairro"></div>
-                        <div class="col-lg-3"><strong>cidade:</strong> </div><div class="col-lg-4" id="cidade"></div>
-                        <div class="col-lg-2"><strong>uf:</strong> </div><div class="col-lg-3" id="uf"></div>
-                        <div class="col-lg-3"><strong>Avaliação:</strong> </div><div class="col-lg-9" id="classificaCliente"></div>
-                        <div class="col-lg-3"><strong>limitecredito:</strong> </div><div class="col-lg-9" id="limitecredito"></div>
-                        
-                        <div class="col-lg-5" id="tipoPessoa"> </div><div class="col-lg-7" id="cadastroGeralPessoa"></div>
-                      
-                        <div class="col-lg-3"><strong>dtNascimento:</strong> </div><div class="col-lg-4" id="dtNascimento"></div>
-                        <div class="col-lg-2"><strong>idade:</strong> </div><div class="col-lg-3" id="idade"></div>
-                        <div class="col-lg-3"><strong>nacionalidade:</strong> </div><div class="col-lg-9" id="nacionalidade"></div>
+                        <div class="col-lg-3"><strong>Endereco:</strong> </div><div class="col-lg-9" id="Endereco"></div>                        
+                        <div class="col-lg-3"><strong>Avaliação:</strong> </div><div class="col-lg-9" id="classificaCliente"></div>                        
                     </div>
                         
                     

@@ -1,0 +1,51 @@
+O exercício pede para implementar uma interface para Grau de Importância e outra para Endereço de Cobrança. 
+
+Crie duas interfaces, uma chamada EnderecoCobrancaInterface e outra GrauImportanciaInterface, cada uma com seus respectivos métodos. Implemente-as na sua classe cliente.
+
+Quando falamos em interfaces, é recomendado ter diversas interfaces com um ou dois métodos ao invés de uma interface com diversos métodos. 
+Isso porque uma classe pode implementar mais de uma interface, 
+por isso separamos por responsabilidade, uma interface para isso, outra para aquilo, etc.
+
+Sugiro o seguinte: Uma classe Cliente genérica com nome, telefone, endereço, endereço de cobrança e classificação, ou seja, ela é bem genérica e vai servir tanto para pessoa física quanto jurídica.
+Uma classe PessoaFisica, ou PF, estendendo a classe Cliente e implementando uma interface de PessoaFisica com os métodos de cpf
+Uma classe PessoaJuridica, ou PJ, estendendo a classe Cliente e implementando uma interface de PessoaJuridica com os métodos de cnpj
+
+Assim suas classes ficam dividas por responsabilidade e para testar, você pode usar o operador instanceof:
+
+$clientes = array(new PessoaFisica(), new PessoaJuridica());
+foreach($clientes as $cliente) {
+      echo ($cliente instanceof PessoaFisica) ? $cliente->getCpf() : $cliente->getCnpj();
+}
+
+Por favor, corrija seu projeto e envie novamente. Não se esqueça das interfaces!
+
+
+
+Olá Ernesto.
+
+Em Orientação a Objetos, uma classe pode implementar quantas interfaces forem necessárias, ex:
+
+interface AInterface 
+{
+      public function getA();
+}
+
+interface BInterface
+{
+     public function getB();
+}
+
+class MinhaClasse implements AInterface, BInterface
+{
+     public function getA()
+     {
+           echo "A";
+     }
+
+     public function getB()
+     {
+          echo "B";
+     }
+}
+
+Um abraço!

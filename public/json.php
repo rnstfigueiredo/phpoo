@@ -5,24 +5,17 @@ require_once 'motorindex.php';
 
 
 
-
 $id = $_POST['ID'];
 
 
- $dados['endereco'] = $arrayClientes[$id]->getEndereco();
- $dados['numero'] = $arrayClientes[$id]->getnumero();
-$dados['bairro'] = $arrayClientes[$id]->getbairro();
-$dados['cidade'] = $arrayClientes[$id]->getcidade();
-$dados['uf'] = $arrayClientes[$id]->getuf();
-$dados['limitecredito'] = $arrayClientes[$id]->getlimitecredito();
+ $dados['cpf'] = $arrayClientes[$id]->getEndereco();
+ $dados['GrauImportacia'] = $arrayClientes[$id]->getGrauImportacia();
+$dados['endCobranca'] = $arrayClientes[$id]->getEnderecoCobranca();
 $dados['nome'] = $arrayClientes[$id]->getnome();
-$dados['cadastroGeralPessoa'] = $arrayClientes[$id]->getcadastroGeralPessoa();
-$dados['dtNascimento'] = $arrayClientes[$id]->getDtNascimento();
-$dados['idade'] = $arrayClientes[$id]->getIdade();
-$dados['nacionalidade'] = $arrayClientes[$id]->getNacionalidade();
+$dados['telefone'] = $arrayClientes[$id]->getTelefone();
+$dados['endereco'] = $arrayClientes[$id]->getEndereco();
+$dados['enderecoCobranca'] = $arrayClientes[$id]->getEnderecoCobranca();
 
-$dados['classificaCliente'] = $arrayClientes[$id]->getClassificaCliente();
-$dados['tipoPessoa'] = $arrayClientes[$id]->getTipoPessoa();
          
 
 echo json_encode($dados);
