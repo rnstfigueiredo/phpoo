@@ -1,7 +1,9 @@
 <?php
-require_once(__DIR__.'/Cliente.php');
+namespace rnst\Pessoa\Type;
 
-class PessoaJuridica  extends Cliente
+use \rnst\Pessoa\Type\Pessoa as PessoaTipo;
+
+class PessoaJuridica  extends PessoaTipo
 {
     //put your code here    
     private $cnpj;

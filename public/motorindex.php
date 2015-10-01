@@ -1,6 +1,14 @@
 <?php
-require_once(__DIR__.'../../dev/PessoaFisica.php');
-require_once(__DIR__.'../../dev/PessoaJuridica.php');
+define('CLASS_DIR', realpath(dirname(__FILE__) . '/../src'));
+define('WWW_ROOT',  dirname(__FILE__));
+define('DS', DIRECTORY_SEPARATOR);
+//echo dirname(__FILE__);
+//echo '<br>';
+require_once(WWW_ROOT. DS. 'autoload.php');
+
+use rnst\Pessoa\Type\PessoaFisica;
+use rnst\Pessoa\Type\PessoaJuridica;
+
 
 $arrayClientes = array();
 
@@ -14,7 +22,7 @@ for($i=0; $i<10;$i++){
     
     if($tipo == 0){
         //p fisica
-        $arrayClientes[$i] = New PessoaFisica();               
+        $arrayClientes[$i] = new PessoaFisica();               
         $cadastroGeralPessoa = $i.$i.$i.".".$i.$i.$i.".".$i.$i.$i."-".$i.$i;
         $arrayClientes[$i]->setCpf($cadastroGeralPessoa)
                 ->setGrauImportacia($classificaCliente)
@@ -25,7 +33,7 @@ for($i=0; $i<10;$i++){
         
     }else{
         //p juridica
-        $arrayClientes[$i] = New PessoaJuridica();
+        $arrayClientes[$i] = new PessoaJuridica();
         $cadastroGeralPessoaJuridica = $i.$i.$i.".".$i.$i.$i.".".$i.$i.$i."/0001-".$i.$i; //99.999.999/9999-99
         $enderecoCobranca = "Rua ".("Cobra"+$i);  
         
