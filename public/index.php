@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
 
-    
+
     require_once 'motorindex.php';
-    
-    
+
+
 ?>
 
 <html lang="en">
@@ -14,11 +14,11 @@
 	<meta name="description" content="">
 	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com) Template base">
         <meta name="developer"      content="Rnst Figueiredo">
-	
+
 	<title>Curso PHPOO - Code.Education</title>
 
 	<link rel="shortcut icon" href="images/favicon.ico">
-	
+
 	<!-- Bootstrap itself -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 
@@ -28,21 +28,21 @@
 	<!-- Fonts -->
         <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 	<link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
-        
-        
+
+
         <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
-        
+
         <!-- tabela dinamica-->
         <link href="css/theme.blue.css" rel="stylesheet" type="text/css"/>
-        
+
 <!-- load jQuery and tablesorter scripts -->
 <script src="js/jquery.tablesorter.min.js" type="text/javascript"></script>
 
 
 <!-- tablesorter widgets (optional) -->
 <script src="js/jquery.tablesorter.widgets.min.js" type="text/javascript"></script>
-    
+
 <script>
 	$(function(){
 		$('table').tablesorter({
@@ -52,33 +52,33 @@
 			sortRestart    : true
 		});
 	});
-        
-        
-        
+
+
+
         function onclickCliente(id_cliente){
         var data ="ID="+id_cliente;
-        
-        
+
+
         $.ajax({
             dataType: "json",
             url: "json.php",
             type : 'POST',
             data: data,
             success: function(data){
-                
+
                     //var texto = data.endereco
                     //alert(texto);
                      $('#Endereco').html(data.endereco);
-                     $('#nome').html(data.nome);                     
+                     $('#nome').html(data.nome);
                      $('#classificaCliente').html(data.GrauImportacia);
             }
         });
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
         $("#dialog-cliente").dialog({
                   autoOpen: false,
                   height: 130,
@@ -91,21 +91,21 @@
       hide: {
         effect: "explode",
         duration: 1000
-      }						
+      }
         });
         $( "#dialog-cliente" ).dialog( "open" );
     }
-    $(document).ready(function() {                                       
-        $("#dialog-cliente").dialog({      
-            autoOpen: false,      
-            modal: false    
-        }); 
+    $(document).ready(function() {
+        $("#dialog-cliente").dialog({
+            autoOpen: false,
+            modal: false
+        });
     });
-        
-        
-        
+
+
+
 	</script>
-        
+
 </head>
 
 <!-- use "theme-invert" class on bright backgrounds, also try "text-shadows" class -->
@@ -120,9 +120,9 @@
 
 		<div class="row">
                     <div class="col-lg-6">
-                        
-                        
-                        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">	
+
+
+                        <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
                             <table id="tablesorter-demo" class="tablesorter tablesorter-blue" role="grid">
                             <thead>
                                 <tr>
@@ -133,19 +133,19 @@
                             </thead>
                             <tbody>
 
-			
-                        
-                                
-                                
+
+
+
+
 
 
 <?php
 
 foreach ($arrayClientes as $key=>$cliente){
-    ($cliente instanceof PessoaFisica) ? $TipoPessoaHTML = "<strong>Fisica</strog>" : $TipoPessoaHTML = "<strong>Juridica</strog>";
-    
-    
-    
+    ($cliente instanceof rnst\Pessoa\Type\PessoaFisica) ? $TipoPessoaHTML = "<strong>Fisica</strog>" : $TipoPessoaHTML = "<strong>Juridica</strog>";
+//echo $TipoPessoaHTML;
+
+
   /*  $tipo = $cliente->getTipoPessoa();
     if($tipo == 1){
         $TipoPessoaHTML = "<strong>Fisica</strog>";
@@ -157,44 +157,46 @@ foreach ($arrayClientes as $key=>$cliente){
    // $id++;
 }
 
-             	
+
 
 ?>
 
-                                </tbody> 
+                                </tbody>
+<tfoot><tr><td colspan="2">Total</td><td>aa</td></tr></tfoot>
+
                         </table>
 
-                        
-                        
-                        
-                            
-                                           
-                            
-                            
-                            
-                            
-	
+
+
+
+
+
+
+
+
+
+
 			</div> <!-- /col -->
-                        
-                        
+
+
                     </div>
-                    
+
                     <div class="col-lg-6">
-                    
-                    
+
+
                     <div id="dialog-cliente" title="Dados Do Cliente">
                         <div class="col-lg-4"><strong>Nome Cliente:</strong></div> <div class="col-lg-8" id="nome"></div>
-                        <div class="col-lg-3"><strong>Endereco:</strong> </div><div class="col-lg-9" id="Endereco"></div>                        
-                        <div class="col-lg-3"><strong>Avaliação:</strong> </div><div class="col-lg-9" id="classificaCliente"></div>                        
+                        <div class="col-lg-3"><strong>Endereco:</strong> </div><div class="col-lg-9" id="Endereco"></div>
+                        <div class="col-lg-3"><strong>Avaliação:</strong> </div><div class="col-lg-9" id="classificaCliente"></div>
                     </div>
-                        
-                    
+
+
                     </div>
-                    
-                    
-			
+
+
+
 		</div> <!-- /row -->
-	
+
 	</div>
 </section>
 

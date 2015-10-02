@@ -50,4 +50,13 @@ for($i=0; $i<10;$i++){
 
 //print_r($arrayClientes);
 //die();
+//foreach ($arrayClientes as $key=>$cliente){
+    
+    
+    
+//    ($cliente instanceof PessoaFisica) ? $TipoPessoaHTML = "<strong>Fisica</strog>" : $TipoPessoaHTML = "<strong>Juridica</strog>";
+//echo $TipoPessoaHTML;
+//}
+
+//die();
 

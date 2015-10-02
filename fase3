@@ -7,3 +7,27 @@ Não se esqueça de criar a estrutura de diretórios, nome de arquivos e classes
 Faça a implementação do autoload para que você não precise mais trabalhar com require/include para a chamada de suas classes.
 
 Deixe todo o fonte de sua aplicação no mesmo nível que o DocumentRoot do servidor web. Deixe a pasta que está visível para web (seu DocumentRoot) apenas com o index.php e os demais assets(css, javascript e imagens).
+
+
+
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54706 [200]: /
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54707 [200]: /css/bootstrap.min.css
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54708 [200]: /css/magister.css
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54709 [200]: /css/jquery-ui.min.css
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54710 [200]: /css/font-awesome.min.css
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54711 [200]: /js/jquery-1.11.3.min.js
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54712 [200]: /js/jquery-ui.min.js
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54713 [200]: /css/theme.blue.css
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54715 [200]: /js/jquery.tablesorter.widgets.min.js
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54716 [200]: /js/bootstrap.min.js
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54714 [200]: /js/jquery.tablesorter.min.js
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54717 [200]: /js/modernizr.custom.72241.js
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54718 [200]: /js/magister.js
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54719 [200]: /images/body4.jpg
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54720 [200]: /css/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54721 [200]: /css/images/ui-icons_222222_256x240.png
+[Thu Oct  1 23:28:15 2015] 127.0.0.1:54722 [200]: /images/favicon.ico
+[Thu Oct  1 23:28:20 2015] 127.0.0.1:54723 [200]: /json.php
+[Thu Oct  1 23:28:20 2015] 127.0.0.1:54724 [200]: /css/images/ui-bg_gloss-wave_35_f6a828_500x100.png
+[Thu Oct  1 23:28:20 2015] 127.0.0.1:54725 [200]: /css/images/ui-bg_diagonals-thick_20_666666_40x40.png
+
